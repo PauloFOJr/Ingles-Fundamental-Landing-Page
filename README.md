@@ -1,4 +1,12 @@
+<p align="center">
+  <img src="img/readme-cover.png" alt="Teacher Patrícia · Business & Tech English: landing page com HTML, CSS e JavaScript" width="100%">
+</p>
+
 # Teacher Patrícia · Landing Page
+
+<p>
+  <a href="https://paulofojr.github.io/Ingles-Fundamental-Landing-Page/"><b>🔗 Ver o site no ar</b></a>
+</p>
 
 Landing page da **Teacher Patrícia**, professora de inglês online focada em **Business English** e **Tech English**. Site estático (HTML, CSS e JavaScript puros), sem build e sem dependências.
 
@@ -25,7 +33,8 @@ teacher-patricia/
 │   └── main.js
 ├── img/
 │   ├── selo-parceiro-flexge.png
-│   └── social-preview.png     ← imagem de compartilhamento (1200×630)
+│   ├── social-preview.png     ← imagem de compartilhamento (1200×630)
+│   └── readme-cover.png       ← capa deste README (1600×640)
 └── fonts/
     └── LEIA-ME.txt        ← colocar aqui os arquivos das fontes da marca
 ```
