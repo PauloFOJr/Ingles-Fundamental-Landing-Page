@@ -1,0 +1,10 @@
+FONTES DA MARCA - Teacher Patricia
+
+Coloque nesta pasta os arquivos das fontes, com estes nomes exatos:
+
+  SalamanderScript.woff2   (ou SalamanderScript.ttf)
+  Simplicity.woff2         (ou Simplicity.ttf)
+
+A Montserrat e carregada pelo Google Fonts (nao precisa ficar aqui).
+Enquanto as fontes acima nao existirem, o site usa a Satisfy como substituta.
+Confira a licenca de cada fonte antes de usar em site.
