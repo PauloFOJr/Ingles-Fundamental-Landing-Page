@@ -97,7 +97,8 @@ Quando a loja real estiver pronta, troque os links de `loja.html` pelo endereço
 O `404.html` tem uma **cópia** do `css/style.css` e do `js/main.js` dentro dele. Por isso:
 
 - Se você alterar o `style.css` ou o `main.js`, **atualize também o `404.html`**.
-- Os links de início usam `/` (e as fontes usam `/fonts/...`), então o site precisa estar na raiz do domínio.
+- O `404.html` usa uma tag `<base>` no `<head>` para que os links e as fontes funcionem em qualquer rota. Hoje ela aponta para o endereço do GitHub Pages: `<base href="/Ingles-Fundamental-Landing-Page/">`.
+- **Ao migrar para domínio próprio**, troque essa tag para `<base href="/">`.
 - Ao abrir o `404.html` com duplo clique, os botões de início apontam para a raiz do computador. Isso é esperado no teste local.
 
 ## Publicação
@@ -112,7 +113,7 @@ Qualquer hospedagem de site estático serve. Envie todo o conteúdo da pasta, ma
 
 A imagem que aparece ao compartilhar o link (WhatsApp, LinkedIn, Instagram, Facebook, X) é `img/social-preview.png`, com 1200×630 px. As meta tags ficam no `<head>` do `index.html`.
 
-- Troque `SEU-DOMINIO.com.br` pelo endereço real do site nas tags `og:url`, `og:image` e `twitter:image`. O endereço da imagem precisa ser **absoluto** (com `https://`).
+- As tags `og:url`, `og:image` e `twitter:image` usam o endereço do GitHub Pages (`https://paulofojr.github.io/Ingles-Fundamental-Landing-Page/`). O endereço da imagem precisa ser **absoluto** (com `https://`). Se o site mudar para um domínio próprio, troque nessas três tags.
 - Depois de publicar, teste o link no [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) ou no [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/). As redes guardam a imagem em cache, então esses testes forçam a atualização.
 
 ## Parceria
