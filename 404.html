@@ -215,6 +215,14 @@ h3{font-size:17px;margin-bottom:8px}
   .msg,.reveal{opacity:1;transform:none}
 }
 
+
+/* Telas pequenas: evita estouro lateral */
+body{overflow-x:hidden}
+@supports (overflow:clip){body{overflow-x:clip}}
+h1,h2,h3,p{overflow-wrap:break-word}
+.nav{gap:10px}.logo{min-width:0}
+@media(max-width:480px){.logo{font-size:25px}.nav-r{gap:8px}.theme-btn{width:36px;height:36px;font-size:15px}}
+@media(max-width:380px){.wrap{padding:0 16px}.logo{font-size:21px}.nav-r{gap:6px}.theme-btn{width:34px;height:34px}}
 </style>
 </head>
 <body>

@@ -72,10 +72,10 @@ h3{font-size:17px;margin-bottom:8px}
 .sub{color:var(--muted);max-width:560px;margin:0}
 
 /* ---------- Hero ---------- */
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:64px 0 48px}
-@media(max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding-top:36px}}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:center;padding:64px 0 48px}
+@media(max-width:860px){.hero{grid-template-columns:minmax(0,1fr);gap:36px;padding-top:36px}}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 0}
-@media(max-width:560px){.hero .cta{justify-content:center}}
+@media(max-width:860px){.hero .cta{justify-content:center}.hero .cta .btn{text-align:center}}
 .stats{display:flex;flex-wrap:wrap;gap:28px;list-style:none;padding:0;margin:32px 0 0}
 .stats b{display:block;font-size:24px;line-height:1.2;color:var(--slate)}
 .stats span{font-size:13px;color:var(--muted)}
@@ -112,7 +112,8 @@ h3{font-size:17px;margin-bottom:8px}
 .tabs{display:inline-flex;flex-wrap:wrap;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px;margin:28px 0 20px}
 .tabs button{border:0;background:none;color:var(--muted);padding:10px 22px;border-radius:999px;font-weight:600;font-size:14px}
 .tabs button.on{background:var(--slate);color:var(--bg)}
-@media(max-width:560px){.tabs{display:flex;flex-direction:column;width:100%;border-radius:28px}.tabs button{width:100%;text-align:center}}
+@media(max-width:860px){.tabs{display:flex;width:fit-content;max-width:100%;margin:28px auto 20px;justify-content:center}}
+@media(max-width:560px){.tabs{flex-direction:column;width:100%;border-radius:28px}.tabs button{width:100%;text-align:center}}
 .panel{display:none;grid-template-columns:1fr 1fr;gap:18px}
 .panel.on{display:grid;animation:pop .4s ease both}
 @media(max-width:720px){.panel.on{grid-template-columns:1fr}}
@@ -193,4 +194,27 @@ h3{font-size:17px;margin-bottom:8px}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .msg,.reveal{opacity:1;transform:none}
+}
+
+/* ---------- Telas pequenas: evita estouro lateral ---------- */
+body{overflow-x:hidden}
+@supports (overflow:clip){body{overflow-x:clip}}
+.hero>*{min-width:0}
+h1,h2,h3,p{overflow-wrap:break-word}
+.nav{gap:10px}
+.logo{min-width:0}
+@media(max-width:480px){
+  .logo{font-size:25px}
+  .nav-r{gap:8px}
+  .btn-sm{padding:8px 14px;font-size:13px}
+  .theme-btn{width:36px;height:36px;font-size:15px}
+}
+@media(max-width:380px){
+  .wrap{padding:0 16px}
+  .logo{font-size:21px}
+  .nav-r{gap:6px}
+  .btn-sm{padding:7px 11px;font-size:12px}
+  .theme-btn{width:34px;height:34px}
+  .store{padding:28px 20px}
+  .final{padding:44px 18px}
 }
