@@ -76,7 +76,7 @@ Salamander Script e Simplicity não estão no Google Fonts. Para ativá-las, col
 - `SalamanderScript.woff2` (ou `.ttf`)
 - `Simplicity.woff2` (ou `.ttf`)
 
-As declarações ficam em `css/fonts.css` (carregado antes do `style.css`). Enquanto os arquivos não existirem, a página usa a **Satisfy** (Google Fonts) como substituta. Confira a licença de cada fonte antes de usar em site.
+As declarações ficam em `css/fonts.css` (carregado antes do `style.css`) e estão **comentadas** para o console não mostrar erros 404. Ao adicionar os arquivos, descomente os blocos `@font-face` desse arquivo (e, se quiser, no `404.html`). Enquanto os arquivos não existirem, a página usa a **Satisfy** (Google Fonts) como substituta. Confira a licença de cada fonte antes de usar em site.
 
 ## Tema claro e escuro
 

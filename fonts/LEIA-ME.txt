@@ -8,3 +8,5 @@ Coloque nesta pasta os arquivos das fontes, com estes nomes exatos:
 A Montserrat e carregada pelo Google Fonts (nao precisa ficar aqui).
 Enquanto as fontes acima nao existirem, o site usa a Satisfy como substituta.
 Confira a licenca de cada fonte antes de usar em site.
+
+DEPOIS DE COLOCAR OS ARQUIVOS: abra css/fonts.css e descomente os dois blocos @font-face.

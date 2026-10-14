@@ -1,16 +1,23 @@
 /* ==========================================================
    Fontes da marca · Teacher Patrícia
-   Coloque os arquivos na pasta /fonts com os nomes abaixo.
-   Enquanto não existirem, o site usa a Satisfy (Google Fonts).
+   ESTÁ DESATIVADO de propósito: os arquivos ainda não estão em /fonts
+   e o navegador mostraria erros 404 no console.
+
+   Para ativar:
+   1. Coloque SalamanderScript.woff2 e Simplicity.woff2 (ou .ttf) em /fonts
+   2. Descomente os dois blocos @font-face abaixo (remova as marcas de comentário)
+   Enquanto isso, o site usa a Satisfy (Google Fonts) como substituta.
    ========================================================== */
 
+/*
 @font-face{
   font-family:"Salamander Script";
-  src:local("Salamander Script"),url("../fonts/SalamanderScript.woff2") format("woff2"),url("../fonts/SalamanderScript.ttf") format("truetype");
+  src:url("../fonts/SalamanderScript.woff2") format("woff2"),url("../fonts/SalamanderScript.ttf") format("truetype");
   font-display:swap;
 }
 @font-face{
   font-family:"Simplicity";
-  src:local("Simplicity"),url("../fonts/Simplicity.woff2") format("woff2"),url("../fonts/Simplicity.ttf") format("truetype");
+  src:url("../fonts/Simplicity.woff2") format("woff2"),url("../fonts/Simplicity.ttf") format("truetype");
   font-display:swap;
 }
+*/
