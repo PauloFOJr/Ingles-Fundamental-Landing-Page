@@ -24,7 +24,8 @@ teacher-patricia/
 ├── js/
 │   └── main.js
 ├── img/
-│   └── selo-parceiro-flexge.png
+│   ├── selo-parceiro-flexge.png
+│   └── social-preview.png     ← imagem de compartilhamento (1200×630)
 └── fonts/
     └── LEIA-ME.txt        ← colocar aqui os arquivos das fontes da marca
 ```
@@ -106,6 +107,13 @@ Qualquer hospedagem de site estático serve. Envie todo o conteúdo da pasta, ma
 - **GitHub Pages, Netlify, Vercel:** o `404.html` na raiz já é usado automaticamente.
 - **Apache:** adicione `ErrorDocument 404 /404.html` no `.htaccess`.
 - **Nginx:** adicione `error_page 404 /404.html;` na configuração do servidor.
+
+## Social preview (Open Graph)
+
+A imagem que aparece ao compartilhar o link (WhatsApp, LinkedIn, Instagram, Facebook, X) é `img/social-preview.png`, com 1200×630 px. As meta tags ficam no `<head>` do `index.html`.
+
+- Troque `SEU-DOMINIO.com.br` pelo endereço real do site nas tags `og:url`, `og:image` e `twitter:image`. O endereço da imagem precisa ser **absoluto** (com `https://`).
+- Depois de publicar, teste o link no [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) ou no [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/). As redes guardam a imagem em cache, então esses testes forçam a atualização.
 
 ## Parceria
 
