@@ -34,7 +34,10 @@ teacher-patricia/
 ├── img/
 │   ├── selo-parceiro-flexge.png
 │   ├── social-preview.png     ← imagem de compartilhamento (1200×630)
-│   └── readme-cover.png       ← capa deste README (1600×640)
+│   ├── readme-cover.png       ← capa deste README (1600×640)
+│   ├── favicon.svg            ← ícone da aba (navegadores modernos)
+│   ├── favicon.ico            ← ícone da aba (fallback)
+│   └── apple-touch-icon.png   ← ícone ao salvar na tela inicial do iPhone
 └── fonts/
     └── LEIA-ME.txt        ← colocar aqui os arquivos das fontes da marca
 ```
