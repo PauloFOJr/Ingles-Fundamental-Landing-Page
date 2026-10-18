@@ -16,18 +16,18 @@
   try {
     var saved = localStorage.getItem(KEY);
     if (saved) root.dataset.theme = saved;
-  } catch (e) { }
+  } catch (e) {}
   paint();
 
   btn.addEventListener('click', function () {
     var next = isDark() ? 'light' : 'dark';
     root.dataset.theme = next;
-    try { localStorage.setItem(KEY, next); } catch (e) { }
+    try { localStorage.setItem(KEY, next); } catch (e) {}
     paint();
   });
 
   /* ---------- Abas Business / Tech ---------- */
-  var tabs = document.querySelectorAll('.tabs button');
+  var tabs = document.querySelectorAll('.tabs button[data-tab]');
   var panels = document.querySelectorAll('.panel');
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
@@ -77,6 +77,48 @@
     items.forEach(function (el) { io.observe(el); });
   } else {
     items.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- Hero: seletor Aulas particulares (submenu) ---------- */
+  var ctaBtn = document.querySelector('[data-cta]');
+  if (ctaBtn) {
+    var sub = document.getElementById(ctaBtn.getAttribute('aria-controls'));
+    ctaBtn.addEventListener('click', function () {
+      var open = !ctaBtn.classList.contains('on');
+      ctaBtn.classList.toggle('on', open);
+      ctaBtn.setAttribute('aria-expanded', String(open));
+      ctaBtn.setAttribute('aria-selected', String(open));
+      sub.classList.toggle('on', open);
+    });
+  }
+
+  /* ---------- Copiar e-mail ---------- */
+  var copyBtn = document.querySelector('[data-copy]');
+  if (copyBtn) {
+    var status = document.getElementById('copy-status');
+    var label = copyBtn.textContent;
+    var done = function (ok) {
+      copyBtn.textContent = ok ? 'Copiado ✓' : 'Copie manualmente';
+      copyBtn.classList.toggle('ok', ok);
+      if (status) status.textContent = ok ? 'E-mail copiado' : 'Não foi possível copiar';
+      setTimeout(function () { copyBtn.textContent = label; copyBtn.classList.remove('ok'); }, 2200);
+    };
+    var fallback = function (text) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      done(ok);
+    };
+    copyBtn.addEventListener('click', function () {
+      var text = copyBtn.dataset.copy;
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { fallback(text); });
+      } else { fallback(text); }
+    });
   }
 
   /* ---------- Ano no rodapé ---------- */

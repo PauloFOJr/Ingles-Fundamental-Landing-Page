@@ -16,6 +16,8 @@ Landing page da **Teacher Patrícia**, professora de inglês online focada em **
 | --- | --- |
 | `index.html` | Landing page principal: hero, trilhas (Business/Tech), como funciona, para quem é, loja e CTA final. |
 | `loja.html` | Página "Loja em construção", enquanto a loja real não está no ar. |
+| `flexge.html` | Página da parceria com a Flexge (hoje "em breve"), aberta em nova aba pelo selo "Saiba mais" do hero. |
+| `empresa.html` | Página "Business English para empresas" (programa 2027, trilha Tech English, depoimentos e contato), aberta em nova aba pelo seletor do hero. |
 | `404.html` | Página de erro. Tem **CSS e JS embutidos** para funcionar em qualquer rota. |
 
 ## Estrutura do projeto
@@ -24,10 +26,11 @@ Landing page da **Teacher Patrícia**, professora de inglês online focada em **
 teacher-patricia/
 ├── index.html
 ├── loja.html
+├── flexge.html
+├── empresa.html
 ├── 404.html
 ├── README.md
 ├── css/
-│   ├── fonts.css          ← declaração das fontes da marca (@font-face)
 │   └── style.css
 ├── js/
 │   └── main.js
@@ -38,8 +41,6 @@ teacher-patricia/
 │   ├── favicon.svg            ← ícone da aba (navegadores modernos)
 │   ├── favicon.ico            ← ícone da aba (fallback)
 │   └── apple-touch-icon.png   ← ícone ao salvar na tela inicial do iPhone
-└── fonts/
-    └── LEIA-ME.txt        ← colocar aqui os arquivos das fontes da marca
 ```
 
 ## Como rodar localmente
@@ -66,20 +67,12 @@ Depois acesse o endereço mostrado (geralmente `http://localhost:3000`) e digite
 
 **Tipografia**
 
-- **Montserrat**: textos (carregada pelo Google Fonts).
-- **Salamander Script**: logo e destaques em script.
-- **Simplicity**: números dos passos.
+- **Montserrat**: textos.
+- **Satisfy**: logo e destaques em script.
 
-As cores e fontes ficam como variáveis no topo do `css/style.css` (`:root`).
+As duas vêm do Google Fonts (licença livre) e são carregadas no `<head>` de cada página. As cores e fontes ficam como variáveis no topo do `css/style.css` (`:root`).
 
-### Fontes da marca
-
-Salamander Script e Simplicity não estão no Google Fonts. Para ativá-las, coloque os arquivos em `fonts/` com estes nomes:
-
-- `SalamanderScript.woff2` (ou `.ttf`)
-- `Simplicity.woff2` (ou `.ttf`)
-
-As declarações ficam em `css/fonts.css` (carregado antes do `style.css`) e estão **comentadas** para o console não mostrar erros 404. Ao adicionar os arquivos, descomente os blocos `@font-face` desse arquivo (e, se quiser, no `404.html`). Enquanto os arquivos não existirem, a página usa a **Satisfy** (Google Fonts) como substituta. Confira a licença de cada fonte antes de usar em site.
+> O manual de marca usa Salamander Script e Simplicity, que são fontes comerciais. A Satisfy foi escolhida como alternativa gratuita e parecida. Para usar as originais, é necessário ter licença de web font e adicionar os arquivos ao projeto.
 
 ## Tema claro e escuro
 
@@ -134,7 +127,6 @@ O selo **Parceiro Flexge** aparece no hero, acima do notebook (`img/selo-parceir
 
 ## Próximos passos sugeridos
 
-- [ ] Adicionar as fontes Salamander Script e Simplicity em `fonts/`
 - [ ] Trocar WhatsApp, Instagram, LinkedIn e link da loja
 - [ ] Incluir depoimentos de alunos
 - [ ] Adicionar a logo em imagem no cabeçalho

@@ -18,13 +18,8 @@
 /* ==========================================================
    Teacher Patrícia · Landing page
    Paleta: #4D585A (ardósia) · #DB95A3 (rosa) · #FAEDE4 (creme)
-   Tipografia: Salamander Script / Simplicity (scripts) + Montserrat
+   Tipografia: Satisfy (script) + Montserrat (texto)
    ========================================================== */
-
-/* Fontes da marca: coloque os arquivos em /fonts para ativá-las.
-   Enquanto não existirem, o navegador usa "Satisfy" como substituta. */
-
-/* Fontes da marca desativadas até os arquivos existirem em /fonts (veja css/fonts.css) */
 
 /* ---------- Tokens de tema ---------- */
 :root{
@@ -40,8 +35,8 @@
   --on-slate:#FAEDE4;
   --terminal:#4D585A;
 
-  --script:"Salamander Script","Satisfy",cursive;
-  --script-2:"Simplicity","Satisfy",cursive;
+  --script:"Satisfy",cursive;
+  --script-2:"Satisfy",cursive;
   --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
 
   box-sizing:border-box;
@@ -223,6 +218,7 @@ h1,h2,h3,p{overflow-wrap:break-word}
 .nav{gap:10px}.logo{min-width:0}
 @media(max-width:480px){.logo{font-size:25px}.nav-r{gap:8px}.theme-btn{width:36px;height:36px;font-size:15px}}
 @media(max-width:380px){.wrap{padding:0 16px}.logo{font-size:21px}.nav-r{gap:6px}.theme-btn{width:34px;height:34px}}
+.footer .dev{margin-top:6px;font-size:12px}.footer .dev a{color:var(--pink-strong);font-weight:600;text-decoration:none}.footer .dev a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
@@ -257,7 +253,8 @@ h1,h2,h3,p{overflow-wrap:break-word}
   </section>
 </main>
 
-<footer class="footer"><p>© <span id="year"></span> Teacher Patrícia · Online English Classes</p></footer>
+<footer class="footer"><p>© <span id="year"></span> Teacher Patrícia · Online English Classes</p>
+<p class="dev">Desenvolvido por <a href="https://github.com/PauloFOJr" target="_blank" rel="noopener">Paulo Jr.</a></p></footer>
 
 <script>
 /* Teacher Patrícia · interações da landing page */

@@ -34,7 +34,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Satisfy&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -44,8 +43,7 @@
     <div class="wrap nav">
       <a class="logo" href="#top">Teacher Patrícia</a>
       <div class="nav-r">
-        <a class="nav-link" href="#tracks">Trilhas</a>
-        <a class="nav-link" href="#how">Como funciona</a>
+        <a class="nav-link" href="#top">Início</a>
         <a class="nav-link" href="loja.html" target="_blank" rel="noopener">Loja</a>
         <a class="btn btn-sm" href="#contato">Contato</a>
         <button id="theme" class="theme-btn" type="button" aria-label="Alternar tema claro/escuro">🌙</button>
@@ -62,22 +60,26 @@
         <h1>Seu inglês pronto para <em>reuniões</em>, entrevistas e código.</h1>
         <p class="lead">Aulas online 100% focadas em Business e Tech English: fale com confiança em calls, e-mails,
           daily meetings e apresentações.</p>
-        <div class="cta">
-          <a class="btn" href="#contato">Interview</a>
-          <a class="btn btn-ghost" href="#tracks">Trilhas</a>
+        <div class="tabs hero-tabs" role="tablist" aria-label="Como você quer estudar">
+          <button class="on" type="button" role="tab" aria-selected="true" aria-expanded="true" aria-controls="cta-private" data-cta="private">Aulas particulares</button>
+          <a class="tab-link" href="empresa.html" target="_blank" rel="noopener">Inglês na sua empresa ↗</a>
+        </div>
+        <div class="submenu on" id="cta-private">
+          <a class="btn btn-sm" href="#contato">Interview</a>
+          <a class="btn btn-sm btn-ghost" href="#tracks">Journey</a>
         </div>
         <ul class="stats">
           <li><b>1:1</b><span>Aulas personalizadas</span></li>
           <li><b>Real</b><span>Situações do trabalho</span></li>
-          <li><b>UK · US</b><span>British &amp; American</span></li>
+          <li><b>On Demand</b><span>Dentro da sua realidade</span></li>
         </ul>
       </div>
 
       <div class="hero-side">
-        <div class="partner">
+        <a class="partner" href="flexge.html" target="_blank" rel="noopener" aria-label="Parceira Flexge: saiba mais sobre a parceria">
           <img src="img/selo-parceiro-flexge.png" width="84" height="84" alt="Selo Parceiro Flexge">
-          <p>Teacher Patrícia é<b>Parceira Flexge</b></p>
-        </div>
+          <p>Teacher Patrícia é<b>Parceira Flexge</b><span class="partner-more">Saiba mais →</span></p>
+        </a>
 
         <div class="scene" aria-hidden="true">
           <div class="flags">
@@ -132,9 +134,21 @@
       </div>
     </section>
 
+    <!-- TESTE DE NIVELAMENTO -->
+    <section id="nivelamento" class="section section-tight reveal">
+      <div class="store level">
+        <div>
+          <span class="tag">Placement test</span>
+          <h2>Teste grátis seu nível de inglês</h2>
+          <p class="sub">Faça o teste de nivelamento online e descubra por onde começar.</p>
+        </div>
+        <a class="btn" href="https://student.flexge.com/v2/placement/teacherpatricia.net" target="_blank" rel="noopener">Fazer o teste grátis ↗</a>
+      </div>
+    </section>
+
     <!-- TRILHAS -->
     <section id="tracks" class="section reveal">
-      <span class="tag">Trilhas</span>
+      <span class="tag">Journey</span>
       <h2>Escolha o inglês que a sua carreira pede.</h2>
       <p class="sub">Conteúdo montado a partir da sua rotina profissional, nada de lição genérica.</p>
 
@@ -165,9 +179,9 @@
         <div class="card">
           <h3>O que você vai dominar</h3>
           <ul>
-            <li>Daily, sprint planning e retrospectives</li>
-            <li>Code review e documentação</li>
-            <li>Entrevistas técnicas e behavioral</li>
+            <li>Daily meetings, sprints & retrospectives</li>
+            <li>Code review & documentation</li>
+            <li>Entrevistas de emprego</li>
             <li>Explicar bugs, deploys e arquitetura</li>
           </ul>
         </div>
@@ -187,7 +201,7 @@
       <div class="steps">
         <div class="card">
           <div class="num">1</div>
-          <h3>Aula experimental</h3>
+          <h3>Interview & Placement</h3>
           <p>Conversamos sobre seu nível, área e objetivos.</p>
         </div>
         <div class="card">
@@ -222,7 +236,7 @@
       <div class="store">
         <div>
           <span class="tag">Loja</span>
-          <h2>Estude também no seu ritmo.</h2>
+          <h2>Complemente seus estudos</h2>
           <p class="sub">Conheça a loja da Teacher Patrícia e continue praticando seu Business e Tech English fora das
             aulas.</p>
         </div>
@@ -235,10 +249,18 @@
       <span class="tag">Let’s talk</span>
       <h2>Pronto para falar inglês com confiança no trabalho?</h2>
       <p>Agende sua interview e descubra o melhor caminho para o seu objetivo.</p>
-      <a class="btn"
-        href="https://wa.me/5551989406926?text=Ol%C3%A1%20Teacher%20Patr%C3%ADcia!%20Quero%20saber%20mais%20sobre%20as%20aulas%20de%20Business%20%26%20Tech%20English.">WhatsApp</a> 
+      <div class="contact-btns">
         <a class="btn"
-        href="mailto:info@teacherpatricia.net">Email</a>
+          href="https://wa.me/5551989406926?text=Ol%C3%A1%20Teacher%20Patr%C3%ADcia!%20Quero%20saber%20mais%20sobre%20as%20aulas%20de%20Business%20%26%20Tech%20English."
+          target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn"
+          href="mailto:info@teacherpatricia.net?subject=Contato%20pelo%20site&body=Ol%C3%A1%2C%20Patr%C3%ADcia!%20Quero%20saber%20mais%20sobre%20as%20aulas.">E-mail</a>
+      </div>
+      <p class="mail-line">
+        <span id="mail-address">info@teacherpatricia.net</span>
+        <button class="copy-btn" type="button" data-copy="info@teacherpatricia.net">Copiar e-mail</button>
+      </p>
+      <span class="sr-only" id="copy-status" role="status" aria-live="polite"></span>
     </section>
 
   </main>
@@ -267,6 +289,7 @@
       </a>
     </div>
     <p>© <span id="year"></span> Teacher Patrícia · Online English Classes</p>
+    <p class="dev">Desenvolvido por <a href="https://github.com/PauloFOJr" target="_blank" rel="noopener">Paulo Jr.</a></p>
   </footer>
 
   <script src="js/main.js"></script>
