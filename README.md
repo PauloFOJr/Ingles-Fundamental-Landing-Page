@@ -16,7 +16,7 @@ Landing page da **Teacher Patrícia**, professora de inglês online focada em **
 | --- | --- |
 | `index.html` | Landing page principal: hero, trilhas (Business/Tech), como funciona, para quem é, loja e CTA final. |
 | `loja.html` | Página "Loja em construção", enquanto a loja real não está no ar. |
-| `flexge.html` | Página da parceria com a Flexge (hoje "em breve"), aberta em nova aba pelo selo "Saiba mais" do hero. |
+| `flexge.html` | Página "Flexge: o material didático" (plataforma, telas do app, sala de aula invertida, certificados), aberta em nova aba pelo selo "Saiba mais" do hero. |
 | `empresa.html` | Página "Business English para empresas" (programa 2027, trilha Tech English, depoimentos e contato), aberta em nova aba pelo seletor do hero. |
 | `404.html` | Página de erro. Tem **CSS e JS embutidos** para funcionar em qualquer rota. |
 
@@ -40,7 +40,8 @@ teacher-patricia/
 │   ├── readme-cover.png       ← capa deste README (1600×640)
 │   ├── favicon.svg            ← ícone da aba (navegadores modernos)
 │   ├── favicon.ico            ← ícone da aba (fallback)
-│   └── apple-touch-icon.png   ← ícone ao salvar na tela inicial do iPhone
+│   ├── apple-touch-icon.png   ← ícone ao salvar na tela inicial do iPhone
+│   └── flexge/                ← imagens da página Flexge (cedidas pela Flexge)
 ```
 
 ## Como rodar localmente

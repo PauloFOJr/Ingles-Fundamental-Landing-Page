@@ -252,6 +252,41 @@ a.partner:hover,a.partner:focus-visible{transform:translateY(-3px);border-color:
 @media(max-width:600px){.fit.cols-2{grid-template-columns:1fr}}
 @media(max-width:860px){.biz-hero{padding-top:40px}}
 
+/* ---------- Rodapé: rótulo ao passar o mouse + botão "voltar" ---------- */
+.social a{position:relative}
+.social a.back{border-color:var(--pink)}
+.social a[data-tip]::after,.social a[data-tip]::before{position:absolute;left:50%;opacity:0;pointer-events:none;transform:translate(-50%,4px);transition:opacity .15s,transform .15s}
+.social a[data-tip]::after{content:attr(data-tip);bottom:calc(100% + 12px);background:var(--pink);color:var(--on-pink);font-size:12px;font-weight:600;line-height:1;padding:7px 10px;border-radius:8px;white-space:nowrap}
+.social a[data-tip]::before{content:"";bottom:calc(100% + 6px);border:6px solid transparent;border-top-color:var(--pink);border-bottom:0}
+.social a[data-tip]:focus-visible::after,.social a[data-tip]:focus-visible::before,.social a[data-tip]:active::after,.social a[data-tip]:active::before{opacity:1;transform:translate(-50%,0)}
+@media (hover:hover){.social a[data-tip]:hover::after,.social a[data-tip]:hover::before{opacity:1;transform:translate(-50%,0)}}
+
+/* ---------- Página Flexge (flexge.html) ---------- */
+.flx-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center;padding:64px 0 28px}
+.flx-hero .tag{display:block;margin-top:14px}
+.flx-hero .lead{max-width:560px}
+.flx-hero .note{margin-top:16px}
+.flx-photo{position:relative;display:flex;justify-content:center}
+.flx-photo>img:first-child{width:min(100%,380px);height:auto}
+.flx-seal{position:absolute;top:-4px;right:4%;width:108px;height:auto;transform:rotate(8deg);filter:drop-shadow(0 10px 14px #0003)}
+.stat-cards.three{grid-template-columns:repeat(3,1fr);margin-top:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.phones{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:30px;align-items:center}
+.phones figure{margin:0;text-align:center}
+.phones img{width:100%;max-width:300px;height:auto;margin:0 auto}
+.phones figcaption{margin-top:14px;font-size:14px;color:var(--muted);max-width:260px;margin-left:auto;margin-right:auto}
+.eyebrow{display:block;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-strong);margin-bottom:8px}
+.steps.four{grid-template-columns:repeat(2,1fr)}
+.step-one{align-items:center}
+.step-one>div{flex:1 1 320px}
+.step-one img{flex:1 1 300px;max-width:420px;width:100%;height:auto;margin:0 auto}
+.step-one .btn{margin-top:20px}
+.fine{display:block;max-width:560px;margin:24px auto 0;font-size:12px;line-height:1.6;opacity:.8}
+.fine a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:860px){.flx-hero{grid-template-columns:minmax(0,1fr);padding-top:40px}.flx-photo{order:2}}
+@media(max-width:720px){.stat-cards.three,.phones{grid-template-columns:1fr}.grid-3{grid-template-columns:repeat(2,1fr)}.steps.four{grid-template-columns:1fr}}
+@media(max-width:560px){.grid-3{grid-template-columns:1fr}}
+
 /* ---------- Telas pequenas: evita estouro lateral ---------- */
 body{overflow-x:hidden}
 @supports (overflow:clip){body{overflow-x:clip}}
