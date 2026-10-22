@@ -271,7 +271,7 @@ a.partner:hover,a.partner:focus-visible{transform:translateY(-3px);border-color:
 .flx-seal{position:absolute;top:-4px;right:4%;width:108px;height:auto;transform:rotate(8deg);filter:drop-shadow(0 10px 14px #0003)}
 .stat-cards.three{grid-template-columns:repeat(3,1fr);margin-top:20px}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
-.phones{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:30px;align-items:center}
+.phones{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:30px;align-items:end}
 .phones figure{margin:0;text-align:center}
 .phones img{width:100%;max-width:300px;height:auto;margin:0 auto}
 .phones figcaption{margin-top:14px;font-size:14px;color:var(--muted);max-width:260px;margin-left:auto;margin-right:auto}
@@ -286,6 +286,60 @@ a.partner:hover,a.partner:focus-visible{transform:translateY(-3px);border-color:
 @media(max-width:860px){.flx-hero{grid-template-columns:minmax(0,1fr);padding-top:40px}.flx-photo{order:2}}
 @media(max-width:720px){.stat-cards.three,.phones{grid-template-columns:1fr}.grid-3{grid-template-columns:repeat(2,1fr)}.steps.four{grid-template-columns:1fr}}
 @media(max-width:560px){.grid-3{grid-template-columns:1fr}}
+
+/* ---------- Avaliação Google ---------- */
+.store.review{border-color:color-mix(in srgb,var(--pink) 55%,var(--line))}
+.stars{display:flex;gap:4px;margin:6px 0 8px}
+.stars svg{width:24px;height:24px;fill:#F4B400}
+
+/* ---------- Formulário de interesse (diálogo) ---------- */
+html:has(dialog[open]){overflow:hidden}
+dialog{border:1px solid var(--line);border-radius:24px;background:var(--surface);color:var(--text);padding:0;width:min(520px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;box-shadow:0 30px 60px -20px #0008}
+dialog::backdrop{background:rgba(20,26,28,.62);backdrop-filter:blur(3px)}
+dialog:not([open]){display:none}
+.dlg-body{position:relative;padding:30px 26px 26px}
+.dlg-body h2{font-size:clamp(22px,4vw,28px);margin:6px 0 6px}
+.dlg-sub{margin:0 0 18px;color:var(--muted);font-size:15px}
+.dlg-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--text);font-size:22px;line-height:1}
+.field{margin-bottom:14px}
+.field label{display:block;margin-bottom:6px;font-size:13px;font-weight:600;color:var(--slate)}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text);font:inherit;font-size:15px}
+.field textarea{resize:vertical;min-height:84px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--pink);outline-offset:1px;border-color:var(--pink)}
+.field .invalid{border-color:#d9534f}
+.dlg-note{margin:4px 0 14px;font-size:12px;line-height:1.5;color:var(--muted)}
+.dlg-error{margin:0 0 12px;font-size:13px;font-weight:600;color:#d9534f}
+.dlg-actions{display:flex;flex-wrap:wrap;gap:10px}
+.dlg-actions .btn{flex:1 1 200px;text-align:center}
+.dlg-ok{text-align:center;padding:12px 0}
+.dlg-ok h3{margin:10px 0 6px;font-size:20px}
+.dlg-ok p{margin:0 0 18px;color:var(--muted)}
+
+/* ---------- Carrossel de depoimentos ---------- */
+.car-tag{display:block;margin:38px 0 10px}
+.carousel{--cw:min(560px,calc(100vw - 72px))}
+.car-viewport{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:14px 0 18px;border-radius:24px}
+.car-viewport::-webkit-scrollbar{display:none}
+.car-viewport:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.car-track{position:relative;display:flex;gap:18px;width:max-content;min-width:100%;padding-inline:calc(50% - var(--cw) / 2)}
+.rcard{flex:0 0 var(--cw);margin:0;display:flex;flex-direction:column;padding:26px 28px;background:var(--surface);border:1px solid var(--line);border-radius:24px;scroll-snap-align:center;opacity:.5;transform:scale(.93);transition:opacity .35s,transform .35s,border-color .35s,box-shadow .35s}
+.rcard.is-active{opacity:1;transform:none;border-color:var(--pink);box-shadow:0 22px 40px -26px var(--pink-strong)}
+.rcard .stars{margin:0 0 12px}
+.rcard .stars svg{width:20px;height:20px}
+.rtext{margin:0 0 20px;font-size:15.5px;line-height:1.75;color:var(--text);flex:1}
+.rcard figcaption{display:flex;align-items:center;gap:12px;font-size:13px;line-height:1.45;color:var(--muted)}
+.rcard figcaption b{color:var(--slate);font-size:14px}
+.avatar{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--pink);color:var(--on-pink);font-weight:700;font-size:14px}
+.car-controls{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:4px}
+.car-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:22px;line-height:1;padding-bottom:3px;transition:background .2s,color .2s,border-color .2s}
+.car-btn:hover,.car-btn:focus-visible{background:var(--pink);border-color:var(--pink);color:var(--on-pink)}
+.car-dots{display:flex;align-items:center;gap:8px}
+.car-dot{width:9px;height:9px;padding:0;border:0;border-radius:999px;background:var(--line);transition:width .25s,background .25s}
+.car-dot[aria-current="true"]{width:24px;background:var(--pink)}
+.car-pause{margin-left:6px;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:6px 14px;font-weight:600;font-size:12px}
+.car-pause:hover,.car-pause:focus-visible{color:var(--text);border-color:var(--pink)}
+@media(max-width:480px){.carousel{--cw:min(560px,calc(100vw - 96px))}.rcard{padding:22px 20px}}
+@media (prefers-reduced-motion:reduce){.car-pause{display:none}.rcard{transition:none}}
 
 /* ---------- Telas pequenas: evita estouro lateral ---------- */
 body{overflow-x:hidden}
