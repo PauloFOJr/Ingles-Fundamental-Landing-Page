@@ -1,74 +1,213 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Loja em construção · Teacher Patrícia</title>
-<meta name="description" content="A loja da Teacher Patrícia está em construção. Em breve, materiais para você praticar Business e Tech English no seu ritmo.">
-<meta name="robots" content="noindex">
-<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="img/favicon.ico" sizes="48x48">
-<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<title>Loja · Teacher Patrícia</title>
+<meta name="description" content="Mapas mentais e materiais de estudo de Business e Tech English para praticar fora das aulas.">
 <meta name="theme-color" content="#FAEDE4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<style>
+/* tokens copiados do style da landing page */
+:root{
+  --bg:#FAEDE4;--surface:#FFF7F1;--text:#3A4446;--muted:#667274;--slate:#4D585A;
+  --pink:#DB95A3;--pink-strong:#B86A7B;--line:#EBD6C8;--on-pink:#FFFFFF;--on-slate:#FAEDE4;
+  --script:"Satisfy",cursive;
+  --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#1B2224;--surface:#252E30;--text:#F3E6DC;--muted:#A9B5B6;--slate:#F3E6DC;--pink:#DB95A3;--pink-strong:#E6A6B3;--line:#37444A;--on-pink:#1B2224;--on-slate:#F3E6DC}
+}
+:root[data-theme="dark"]{--bg:#1B2224;--surface:#252E30;--text:#F3E6DC;--muted:#A9B5B6;--slate:#F3E6DC;--pink:#DB95A3;--pink-strong:#E6A6B3;--line:#37444A;--on-pink:#1B2224;--on-slate:#F3E6DC}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;transition:background .3s,color .3s;overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+svg{max-width:100%;display:block}
+h1,h2,h3{color:var(--slate);margin:0}
+h2{font-size:clamp(24px,3.5vw,30px);line-height:1.2;margin:48px 0 18px}
+:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+
+.header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:10px}
+.logo{font-family:var(--script);font-size:30px;line-height:1;color:var(--slate);text-decoration:none;white-space:nowrap}
+.nav-r{display:flex;align-items:center;gap:12px}
+.nav-link{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+.nav-link:hover,.nav-link[aria-current]{color:var(--text)}
+.nav-link[aria-current]{border-bottom:2px solid var(--pink)}
+@media(max-width:640px){.nav-link{display:none}}
+.theme-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:17px;line-height:1}
+
+.btn{display:inline-block;background:var(--pink);color:var(--on-pink);padding:11px 22px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1.5px solid var(--pink);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px var(--pink-strong)}
+.btn-slate{background:var(--slate);color:var(--bg);border-color:var(--slate)}
+
+.store{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;margin:40px 0 0;border:1px solid var(--pink);background:color-mix(in srgb,var(--pink) 10%,var(--surface));border-radius:24px;padding:36px 32px}
+.store>div{flex:1 1 320px}
+.store h1{font-size:clamp(30px,4.6vw,44px);line-height:1.18;font-weight:700;margin-bottom:10px}
+.store h1 em{font-family:var(--script);font-style:normal;font-weight:400;color:var(--pink-strong);font-size:1.2em;line-height:1;padding:0 .08em}
+.store p{margin:0;color:var(--muted);font-size:18px;max-width:520px}
+.shelf{flex:0 0 auto}
+
+.tabs{display:inline-flex;flex-wrap:wrap;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px;margin:40px 0 16px}
+.tabs button{border:0;background:none;color:var(--muted);padding:10px 22px;border-radius:999px;font-weight:600;font-size:14px}
+.tabs button.on{background:var(--slate);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{padding:8px 16px;border:1px solid var(--line);background:var(--surface);border-radius:999px;font-size:14px;font-weight:600;color:var(--text)}
+.chip[aria-pressed="true"]{background:var(--pink);border-color:var(--pink);color:var(--on-pink)}
+.count{margin:16px 0 20px;color:var(--muted);font-size:14px}
+@media(max-width:560px){.tabs{flex-direction:column;width:100%;border-radius:28px}.tabs button{width:100%}}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px;display:flex;flex-direction:column;transition:transform .25s}
+.card:hover{transform:translateY(-4px)}
+.card svg{width:100%;height:auto;margin-bottom:12px}
+.card img{width:100%;aspect-ratio:5/3;object-fit:cover;border-radius:12px;margin-bottom:12px}
+.card h3{font-size:17px;margin-bottom:4px}
+.card p{margin:0 0 16px;color:var(--muted);font-size:15px}
+.card .btn{margin-top:auto;text-align:center}
+
+.mm-b .l{stroke:var(--pink-strong)}.mm-b .n{fill:color-mix(in srgb,var(--pink) 30%,var(--surface))}.mm-b .c{fill:var(--pink-strong)}.mm-b .ct{fill:var(--on-pink)}
+.mm-t .l{stroke:var(--slate)}.mm-t .n{fill:color-mix(in srgb,var(--slate) 14%,var(--surface))}.mm-t .c{fill:var(--slate)}.mm-t .ct{fill:var(--bg)}
+.mm .nt{fill:var(--text);font-family:var(--sans)}.mm .ct{font-family:var(--sans);font-weight:600}
+
+.footer{border-top:1px solid var(--line);margin-top:56px;padding:30px 22px;text-align:center;color:var(--muted);font-size:13px}
+.footer p{margin:0}
+.footer .dev{margin-top:6px;font-size:12px}
+.footer .dev a{color:var(--pink-strong);font-weight:600;text-decoration:none}
+.footer .dev a:hover,.footer .dev a:focus-visible{text-decoration:underline}
+.social{display:flex;justify-content:center;gap:12px;margin-top:26px}
+.social a{position:relative;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;color:inherit;opacity:.85;transition:transform .2s,opacity .2s,background .2s,color .2s}
+.social a:hover{opacity:1;transform:translateY(-3px);background:var(--pink);border-color:var(--pink);color:var(--on-pink)}
+.social svg{width:21px;height:21px}
+.footer .social{margin:0 0 16px;color:var(--slate)}
+.social a.back{border-color:var(--pink)}
+.social a[data-tip]::after,.social a[data-tip]::before{position:absolute;left:50%;opacity:0;pointer-events:none;transform:translate(-50%,4px);transition:opacity .15s,transform .15s}
+.social a[data-tip]::after{content:attr(data-tip);bottom:calc(100% + 12px);background:var(--pink);color:var(--on-pink);font-size:12px;font-weight:600;line-height:1;padding:7px 10px;border-radius:8px;white-space:nowrap}
+.social a[data-tip]::before{content:"";bottom:calc(100% + 6px);border:6px solid transparent;border-top-color:var(--pink);border-bottom:0}
+.social a[data-tip]:focus-visible::after,.social a[data-tip]:focus-visible::before,.social a[data-tip]:active::after,.social a[data-tip]:active::before{opacity:1;transform:translate(-50%,0)}
+@media (hover:hover){.social a[data-tip]:hover::after,.social a[data-tip]:hover::before{opacity:1;transform:translate(-50%,0)}}
+@media(max-width:480px){.logo{font-size:25px}.theme-btn{width:36px;height:36px;font-size:15px}.store{padding:28px 20px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+</style>
 </head>
 <body>
-
-<header class="header">
-  <div class="wrap nav">
-    <a class="logo" href="index.html">Teacher Patrícia</a>
-    <div class="nav-r">
-      <a class="nav-link" href="index.html">Voltar ao site</a>
-      <button id="theme" class="theme-btn" type="button" aria-label="Alternar tema claro/escuro">🌙</button>
-    </div>
-  </div>
-</header>
+<header class="header"><div class="wrap nav">
+<a class="logo" href="index.html">Teacher Patrícia</a>
+<div class="nav-r">
+<a class="nav-link" href="index.html">Início</a>
+<a class="nav-link" href="loja.html" aria-current="page">Loja</a>
+<a class="nav-link" href="index.html#contato">Contato</a>
+<button class="theme-btn" id="tema" type="button" aria-label="Alternar tema claro e escuro">🌙</button>
+</div>
+</div></header>
 
 <main class="wrap" id="top">
-  <section class="status">
-    <div class="status-art" aria-hidden="true">
-      <span class="status-bubble">Coming soon!</span>
-      <svg viewBox="0 0 24 24"><path d="M4 8h16l-1.2 11a2 2 0 0 1-2 1.8H7.2a2 2 0 0 1-2-1.8L4 8z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 13.5l2 2 4-4" fill="none" stroke="var(--pink)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
+<section class="store">
+<div>
+<h1>Complemente seus <em>estudos</em></h1>
+<p>Mapas mentais e guias de Business e Tech English para praticar fora das aulas.</p>
+</div>
+<svg class="shelf" width="170" height="90" viewBox="0 0 170 90" role="img" aria-label="Prateleira com livros">
+<rect x="20" y="30" width="22" height="50" rx="2" fill="var(--pink)"/><rect x="46" y="14" width="22" height="66" rx="2" fill="var(--slate)"/><rect x="72" y="38" width="22" height="42" rx="2" fill="var(--pink-strong)"/><rect x="98" y="22" width="22" height="58" rx="2" fill="var(--line)"/><rect x="124" y="42" width="22" height="38" rx="2" fill="var(--pink)"/>
+<rect x="8" y="80" width="154" height="6" rx="3" fill="var(--slate)"/>
+</svg>
+</section>
 
-    <span class="tag">Loja · Em construção</span>
-    <h1>Algo novo está <em>chegando</em></h1>
-    <p class="lead">Estamos preparando a loja da Teacher Patrícia com muito carinho. Em breve, materiais para você praticar Grammar, Business, Tech English e muito mais.</p>
-
-    <div class="progress" role="img" aria-label="Loja em construção"><span></span></div>
-
-    <div class="cta">
-      <a class="btn" href="https://wa.me/5551989406926?text=Ol%C3%A1%20Teacher%20Patr%C3%ADcia!%20Quero%20ser%20avisado(a)%20quando%20a%20loja%20abrir." target="_blank" rel="noopener">Quero ser avisado(a)</a>
-      <a class="btn btn-ghost" href="index.html">Voltar ao site</a>
-    </div>
-  </section>
+<div class="tabs" role="group" aria-label="Tema">
+<button class="on" type="button" data-tab="all" aria-pressed="true">Todos</button>
+<button type="button" data-tab="b" aria-pressed="false">Business</button>
+<button type="button" data-tab="t" aria-pressed="false">Tech</button>
+</div>
+<div class="chips" role="group" aria-label="Assunto"></div>
+<p class="count" id="count" role="status" aria-live="polite"></p>
+<div class="grid" id="g"></div>
 </main>
 
 <footer class="footer">
-  <div class="social">
-    <a href="https://instagram.com/teacherpatricia.insta" target="_blank" rel="noopener" aria-label="Instagram" data-tip="Instagram">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
-    </a>
-    <a href="https://www.linkedin.com/in/teacherpatricianet/" target="_blank" rel="noopener" aria-label="LinkedIn" data-tip="LinkedIn">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-4.9c0-1.17-.02-2.67-1.63-2.67-1.63 0-1.88 1.27-1.88 2.59V21h-4z"/></svg>
-    </a>
-    <a href="#top" aria-label="Voltar ao topo" data-tip="Voltar ao topo">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16l-1.2 11a2 2 0 0 1-2 1.8H7.2a2 2 0 0 1-2-1.8L4 8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-    </a>
-    <a href="flexge.html" target="_blank" rel="noopener" aria-label="Flexge" data-tip="Flexge">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4L2 9l10 5 10-5-10-5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5M22 9v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a class="back" href="index.html" aria-label="Voltar ao site" data-tip="Voltar ao site">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 9h18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 15H8.5M11 12.5L8.5 15l2.5 2.5" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--pink-strong)"/></svg>
-    </a>
-  </div>
-  <p>© <span id="year"></span> Teacher Patrícia · Online English Classes</p>
-  <p class="dev">Desenvolvido por <a href="https://github.com/PauloFOJr" target="_blank" rel="noopener">Paulo Jr.</a></p>
+<div class="social">
+<a href="https://instagram.com/teacherpatricia.insta" target="_blank" rel="noopener" aria-label="Instagram" data-tip="Instagram">
+<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+</a>
+<a href="https://www.linkedin.com/in/teacherpatricianet/" target="_blank" rel="noopener" aria-label="LinkedIn" data-tip="LinkedIn">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-4.9c0-1.17-.02-2.67-1.63-2.67-1.63 0-1.88 1.27-1.88 2.59V21h-4z"/></svg>
+</a>
+<a href="#top" aria-label="Voltar ao topo" data-tip="Voltar ao topo">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6.5 11.5L12 6l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+<a href="flexge.html" target="_blank" rel="noopener" aria-label="Flexge" data-tip="Flexge">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4L2 9l10 5 10-5-10-5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5M22 9v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+<a class="back" href="index.html" aria-label="Voltar ao site" data-tip="Voltar ao site">
+<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 9h18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 15H8.5M11 12.5L8.5 15l2.5 2.5" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--pink-strong)"/></svg>
+</a>
+</div>
+<p>© <span id="year"></span> Teacher Patrícia · Online English Classes</p>
+<p class="dev">Desenvolvido por <a href="https://github.com/PauloFOJr" target="_blank" rel="noopener">Paulo Jr.</a></p>
 </footer>
 
-<script src="js/main.js"></script>
+<script>
+// shortcut: produtos e preços de exemplo, trocar pelos reais; depois migrar o botão para link de pagamento
+document.getElementById("year").textContent = new Date().getFullYear();
+const WA = "5551989406926";
+// img é opcional: img:"img/loja/nome.png" (proporção 5:3). Sem img, desenha o mapa mental.
+const P = [
+  {t:"b", s:"Reuniões", n:"Meeting phrases", c:"Meeting", k:["Agenda","Recap","Q&A","Next"], p:"R$ 29"},
+  {t:"b", s:"E-mails", n:"E-mails profissionais", c:"E-mail", k:["Open","Ask","Follow","Close"], p:"R$ 29"},
+  {t:"b", s:"Entrevistas", n:"Interview cheat sheet", c:"Interview", k:["Intro","STAR","Ask","Close"], p:"R$ 39"},
+  {t:"t", s:"Reuniões", n:"Daily meeting kit", c:"Daily", k:["Done","Next","Blocked","Demo"], p:"R$ 29"},
+  {t:"t", s:"Código", n:"Code review", c:"Review", k:["Bug","PR","Merge","Test"], p:"R$ 29"},
+  {t:"t", s:"Vocabulário", n:"Phrasal verbs de TI", c:"Phrasal", k:["Push","Roll back","Spin up","Break"], p:"R$ 29"}
+];
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const pos = [[4,4],[132,4],[4,76],[132,76]];
+function map(p){
+  const lines = pos.map(([x,y])=>`<line class="l" x1="100" y1="60" x2="${x+32}" y2="${y+10}" stroke-width="1.5"/>`).join("");
+  const nodes = pos.map(([x,y],i)=>`<rect class="n" x="${x}" y="${y}" width="64" height="20" rx="10"/><text class="nt" x="${x+32}" y="${y+14}" text-anchor="middle" font-size="11">${esc(p.k[i])}</text>`).join("");
+  return `<svg class="mm mm-${p.t}" viewBox="0 0 200 120" role="img" aria-label="Mapa mental: ${esc(p.n)}">${lines}${nodes}<ellipse class="c" cx="100" cy="60" rx="40" ry="17"/><text class="ct" x="100" y="64" text-anchor="middle" font-size="12">${esc(p.c)}</text></svg>`;
+}
+const card = p => {
+  const msg = encodeURIComponent("Olá Teacher Patrícia! Quero o material: " + p.n);
+  const art = p.img ? `<img src="${esc(p.img)}" alt="Capa: ${esc(p.n)}" loading="lazy">` : map(p);
+  return `<article class="card">${art}<h3>${esc(p.n)}</h3><p>${p.p} · PDF</p><a class="btn${p.t==="t"?" btn-slate":""}" href="https://wa.me/${WA}?text=${msg}">Quero esse</a></article>`;
+};
+let tab = "all", sub = "all";
+const tabs = [...document.querySelectorAll(".tabs button")], chipsEl = document.querySelector(".chips");
+function render(){
+  const byTab = P.filter(p => tab === "all" || p.t === tab);
+  const subs = [...new Set(byTab.map(p => p.s))];
+  if (sub !== "all" && !subs.includes(sub)) sub = "all";
+  chipsEl.innerHTML = ["all", ...subs].map(s => `<button type="button" class="chip" data-s="${esc(s)}" aria-pressed="${s === sub}">${s === "all" ? "Tudo" : esc(s)}</button>`).join("");
+  const list = byTab.filter(p => sub === "all" || p.s === sub);
+  document.getElementById("g").innerHTML = list.map(card).join("");
+  document.getElementById("count").textContent = list.length + (list.length === 1 ? " material" : " materiais");
+}
+tabs.forEach(b => b.onclick = () => {
+  tab = b.dataset.tab;
+  tabs.forEach(x => { const on = x === b; x.classList.toggle("on", on); x.setAttribute("aria-pressed", on); });
+  render();
+});
+chipsEl.onclick = e => {
+  const b = e.target.closest("[data-s]");
+  if (!b) return;
+  sub = b.dataset.s;
+  render();
+  chipsEl.querySelector(`[data-s="${sub}"]`).focus();
+};
+render();
+const root = document.documentElement, btn = document.getElementById("tema"), KEY = "tp-theme";
+const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme:dark)").matches;
+const paint = () => { btn.textContent = isDark() ? "☀️" : "🌙"; };
+try { const s = localStorage.getItem(KEY); if (s) root.dataset.theme = s; } catch(e){}
+paint();
+btn.onclick = () => {
+  root.dataset.theme = isDark() ? "light" : "dark";
+  try { localStorage.setItem(KEY, root.dataset.theme); } catch(e){}
+  paint();
+};
+</script>
 </body>
 </html>
