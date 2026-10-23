@@ -160,7 +160,7 @@ h3{font-size:17px;margin-bottom:8px}
 /* ---------- Selo Parceiro Flexge ---------- */
 .hero-side{display:flex;flex-direction:column;align-items:center;gap:26px;min-width:0}
 .partner{display:inline-flex;align-items:center;gap:14px;padding:8px 22px 8px 8px;background:var(--surface);border:1px solid var(--line);border-radius:999px}
-.partner img{width:64px;height:64px;flex:none;border-radius:50%}
+.partner img{width:90px;height:90px;flex:none;border-radius:50%}
 .partner p{margin:0;font-size:12px;line-height:1.35;color:var(--muted);text-align:left}
 .partner b{display:block;font-size:15px;color:var(--slate)}
 a.partner{text-decoration:none;color:inherit;transition:transform .2s,border-color .2s,box-shadow .2s}
