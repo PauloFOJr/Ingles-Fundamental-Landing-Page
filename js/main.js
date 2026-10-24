@@ -57,6 +57,17 @@
   };
   var pos = { biz: 0, tech: 0 };
 
+  /* Tema do mês: frases temáticas entram primeiro (ver js/seasonal.js) */
+  var SS = window.TP_SEASON;
+  if (SS && SS.on && SS.phrases) {
+    ['biz', 'tech'].forEach(function (k) {
+      phrases[k] = SS.phrases.concat(phrases[k]);
+      var p = document.getElementById('ph-' + k), t = document.getElementById('tr-' + k);
+      if (p) p.textContent = '“' + phrases[k][0][0] + '”';
+      if (t) t.textContent = '= ' + phrases[k][0][1];
+    });
+  }
+
   document.querySelectorAll('[data-next]').forEach(function (b) {
     b.addEventListener('click', function () {
       var k = b.dataset.next;

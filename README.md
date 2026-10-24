@@ -31,9 +31,11 @@ teacher-patricia/
 ├── 404.html
 ├── README.md
 ├── css/
-│   └── style.css
+│   ├── style.css
+│   └── seasonal.css       ← camada do tema do mês
 ├── js/
-│   └── main.js
+│   ├── main.js
+│   └── seasonal.js        ← escolhe o tema conforme o mês
 ├── img/
 │   ├── selo-parceiro-flexge.png
 │   ├── social-preview.png     ← imagem de compartilhamento (1200×630)
@@ -114,6 +116,25 @@ Qualquer hospedagem de site estático serve. Envie todo o conteúdo da pasta, ma
 - **GitHub Pages, Netlify, Vercel:** o `404.html` na raiz já é usado automaticamente.
 - **Apache:** adicione `ErrorDocument 404 /404.html` no `.htaccess`.
 - **Nginx:** adicione `error_page 404 /404.html;` na configuração do servidor.
+
+## Tema do mês
+
+A home ganha uma camada decorativa discreta conforme o mês (`js/seasonal.js` + `css/seasonal.css`): itens translúcidos no topo, um selo ao lado da etiqueta do hero, uma saudação no chat do notebook e a "Phrase of the day" com frases do tema. As cores e as fontes da marca não mudam.
+
+| Mês | Tema | Mês | Tema |
+| --- | --- | --- | --- |
+| Jan | Ano Novo | Jul | Férias de inverno |
+| Fev | Carnaval | Ago | Dia dos Pais |
+| Mar | St. Patrick's Day | Set | Primavera |
+| Abr | Páscoa | Out | Halloween |
+| Mai | Dia das Mães | Nov | Black Friday |
+| Jun | Festa Junina | Dez | Natal |
+
+- **Pré-visualizar um mês:** `index.html?mes=3` (de 1 a 12).
+- **Forçar ligado ou desligado:** `?tema=on` ou `?tema=off`.
+- **Desativar:** o visitante pode usar o botão do menu (ícone do mês) ou o link "Desativar" no rodapé. A escolha fica salva no navegador.
+- **Editar temas, frases e cores:** a lista `THEMES` no início do `js/seasonal.js`.
+- Quem usa "reduzir movimento" no sistema não vê animação.
 
 ## Social preview (Open Graph)
 

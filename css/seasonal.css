@@ -1,0 +1,26 @@
+/* Teacher Patrícia · Tema do mês (camada discreta)
+   A cor de destaque vem de --season, definida por js/seasonal.js. */
+html.season-on body{position:relative}
+html.season-on main{position:relative;z-index:1}
+
+.season-layer{position:absolute;top:0;left:0;right:0;height:640px;overflow:hidden;pointer-events:none;z-index:0}
+.season-item{position:absolute;line-height:1;opacity:.2;transform:rotate(var(--r,0deg));user-select:none;animation:season-float 9s ease-in-out infinite;animation-delay:var(--d,0s)}
+.season-item.corner{left:-4px;top:64px;font-size:96px;opacity:.22;animation:none}
+@keyframes season-float{50%{transform:translateY(-8px) rotate(var(--r,0deg))}}
+
+.season-chip{display:inline-block;margin-left:10px;padding:3px 11px;border-radius:999px;font-size:12px;font-weight:600;line-height:1.5;vertical-align:middle;
+  color:color-mix(in srgb,var(--season) 60%,var(--text));
+  background:color-mix(in srgb,var(--season) 14%,var(--surface));
+  border:1px solid color-mix(in srgb,var(--season) 70%,transparent)}
+
+.season-btn{width:40px;height:40px;padding:0;border-radius:50%;border:1.5px solid var(--season);background:var(--surface);font-size:18px;line-height:1;display:grid;place-items:center;transition:transform .2s}
+.season-btn:hover,.season-btn:focus-visible{transform:scale(1.08)}
+
+.season-foot{margin:10px 0 0}
+.season-foot button{padding:0;border:0;background:none;color:var(--muted);font-size:12px;text-decoration:underline;text-underline-offset:3px}
+.season-foot button:hover,.season-foot button:focus-visible{color:var(--text)}
+
+@media(max-width:640px){.season-item:nth-child(n+4){display:none}.season-item.corner{font-size:72px}}
+@media(max-width:480px){.season-btn{width:36px;height:36px;font-size:16px}}
+@media(max-width:420px){.season-btn{display:none}}
+@media (prefers-reduced-motion:reduce){.season-item{animation:none}}
