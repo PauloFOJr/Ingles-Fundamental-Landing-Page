@@ -44,18 +44,6 @@ teacher-patricia/
 │   └── flexge/                ← imagens da página Flexge (cedidas pela Flexge)
 ```
 
-## Como rodar localmente
-
-Abrir o `index.html` direto no navegador já funciona. Para testar de forma mais fiel (inclusive a página 404), use um servidor local dentro da pasta do projeto:
-
-```bash
-npx serve
-```
-
-Depois acesse o endereço mostrado (geralmente `http://localhost:3000`) e digite uma rota inexistente, como `/qualquer-coisa`, para ver a 404.
-
-> `python3 -m http.server` não usa o `404.html` e serve a página de erro padrão dele.
-
 ## Identidade visual
 
 **Paleta**
@@ -87,48 +75,10 @@ As duas vêm do Google Fonts (licença livre) e são carregadas no `<head>` de c
 
 - Instagram: `https://instagram.com/teacherpatricia.insta` (`index.html` e `loja.html`)
 - LinkedIn: `https://www.linkedin.com/in/teacherpatricianet/` (`index.html` e `loja.html`)
-
 - WhatsApp: `https://wa.me/5551989406926` (`index.html`, `loja.html` e `404.html`)
 
-**Ainda é placeholder**
-
-| Placeholder | O que é | Onde aparece |
-| --- | --- | --- |
-| `loja.html` | Link da loja (página "em construção") | `index.html` (menu, botão da seção Loja e ícone do rodapé) |
-
-Quando a loja real estiver pronta, troque os links de `loja.html` pelo endereço dela.
-
-## Páginas com CSS/JS embutido (atenção)
-
-O `404.html` tem uma **cópia** do `css/style.css` e do `js/main.js` dentro dele. Por isso:
-
-- Se você alterar o `style.css` ou o `main.js`, **atualize também o `404.html`**.
-- O `404.html` usa uma tag `<base>` no `<head>` para que os links e as fontes funcionem em qualquer rota. Como o site está em domínio próprio, ela aponta para a raiz: `<base href="/">`.
-- Se o site voltar a ser servido em uma subpasta (por exemplo, GitHub Pages de projeto), troque para `<base href="/NOME-DO-REPOSITORIO/">`.
-- Ao abrir o `404.html` com duplo clique, os botões de início apontam para a raiz do computador. Isso é esperado no teste local.
-
-## Publicação
-
-Qualquer hospedagem de site estático serve. Envie todo o conteúdo da pasta, mantendo a estrutura.
-
-- **GitHub Pages, Netlify, Vercel:** o `404.html` na raiz já é usado automaticamente.
-- **Apache:** adicione `ErrorDocument 404 /404.html` no `.htaccess`.
-- **Nginx:** adicione `error_page 404 /404.html;` na configuração do servidor.
-
-## Social preview (Open Graph)
-
-A imagem que aparece ao compartilhar o link (WhatsApp, LinkedIn, Instagram, Facebook, X) é `img/social-preview.png`, com 1200×630 px. As meta tags ficam no `<head>` do `index.html`.
-
-- As tags `og:url`, `og:image` e `twitter:image` usam o domínio próprio (`https://www.teacherpatricia.net/`). O endereço da imagem precisa ser **absoluto** (com `https://`). Se o domínio mudar, troque nessas três tags e a `<base>` do `404.html`.
-- Depois de publicar, teste o link no [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) ou no [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/). As redes guardam a imagem em cache, então esses testes forçam a atualização.
 
 ## Parceria
 
 O selo **Parceiro Flexge** aparece no hero, acima do notebook (`img/selo-parceiro-flexge.png`).
 
-## Próximos passos sugeridos
-
-- [ ] Trocar WhatsApp, Instagram, LinkedIn e link da loja
-- [ ] Incluir depoimentos de alunos
-- [ ] Adicionar a logo em imagem no cabeçalho
-- [ ] Configurar domínio, favicon e imagem de compartilhamento (Open Graph)
