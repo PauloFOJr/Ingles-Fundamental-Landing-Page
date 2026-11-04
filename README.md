@@ -69,16 +69,13 @@ As duas vêm do Google Fonts (licença livre) e são carregadas no `<head>` de c
 - O botão 🌙/☀️ no menu alterna manualmente e salva a escolha no `localStorage`.
 - Todas as cores vêm de variáveis CSS. Para ajustar um tema, edite os blocos de tokens no `:root` do `style.css`.
 
-## O que você precisa trocar antes de publicar
-
-**Já configurados**
-
-- Instagram: `https://instagram.com/teacherpatricia.insta` (`index.html` e `loja.html`)
-- LinkedIn: `https://www.linkedin.com/in/teacherpatricianet/` (`index.html` e `loja.html`)
-- WhatsApp: `https://wa.me/5551989406926` (`index.html`, `loja.html` e `404.html`)
-
-
 ## Parceria
 
 O selo **Parceiro Flexge** aparece no hero, acima do notebook (`img/selo-parceiro-flexge.png`).
 
+## 👤 Autor
+
+**Paulo Júnior** · desenvolvedor Java e Flutter
+
+[![GitHub](https://img.shields.io/badge/GitHub-PauloFOJr-181717?style=flat-square&logo=github)](https://github.com/PauloFOJr)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-paulofojunior-0077B5?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/paulofojunior)
