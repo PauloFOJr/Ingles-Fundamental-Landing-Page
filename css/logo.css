@@ -1,0 +1,17 @@
+/* Teacher Patrícia · Logo no cabeçalho (ícone + nome) e no rodapé (logo completa)
+   A imagem da logo tem fundo creme (#FAEDE4). No tema claro ele se funde com a página;
+   no tema escuro ela aparece como um selo/cartão creme. */
+.logo{display:inline-flex;align-items:center;gap:10px}
+.logo-mark{flex:none;display:block;background:#FAEDE4;border-radius:11px;padding:3px;line-height:0}
+.logo-mark img{display:block;height:40px;width:auto}
+
+.foot-brand{display:block;width:max-content;max-width:100%;margin:0 auto 22px;padding:12px;background:#FAEDE4;border-radius:22px;line-height:0}
+.foot-brand img{display:block;height:120px;width:auto;max-width:100%}
+
+@media(max-width:480px){
+  .logo{gap:8px}
+  .logo-mark img{height:32px}
+  .foot-brand img{height:96px}
+}
+/* telas muito estreitas: some o ícone para o menu não estourar a largura */
+@media(max-width:360px){.logo-mark{display:none}}

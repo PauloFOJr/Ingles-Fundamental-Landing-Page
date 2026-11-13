@@ -31,13 +31,18 @@ teacher-patricia/
 ├── 404.html
 ├── README.md
 ├── css/
-│   └── style.css
+│   ├── style.css
+│   ├── logo.css               ← logo no cabeçalho e no rodapé
+│   └── seasonal.css           ← camada do tema do mês
 ├── js/
-│   └── main.js
+│   ├── main.js
+│   └── seasonal.js            ← escolhe o tema conforme o mês
 ├── img/
 │   ├── selo-parceiro-flexge.png
 │   ├── social-preview.png     ← imagem de compartilhamento (1200×630)
 │   ├── readme-cover.png       ← capa deste README (1600×640)
+│   ├── logo-icone.webp        ← ícone da logo (cabeçalho)
+│   ├── logo-completa.webp     ← logo completa (rodapé)
 │   ├── favicon.svg            ← ícone da aba (navegadores modernos)
 │   ├── favicon.ico            ← ícone da aba (fallback)
 │   ├── apple-touch-icon.png   ← ícone ao salvar na tela inicial do iPhone
@@ -68,6 +73,26 @@ As duas vêm do Google Fonts (licença livre) e são carregadas no `<head>` de c
 - Segue automaticamente a preferência do sistema (`prefers-color-scheme`).
 - O botão 🌙/☀️ no menu alterna manualmente e salva a escolha no `localStorage`.
 - Todas as cores vêm de variáveis CSS. Para ajustar um tema, edite os blocos de tokens no `:root` do `style.css`.
+
+## Tema do mês
+
+A home ganha uma camada decorativa discreta conforme o mês (`js/seasonal.js` + `css/seasonal.css`): itens translúcidos no topo, um selo ao lado da etiqueta do hero, uma saudação no chat do notebook e a "Phrase of the day" com frases do tema. As cores e as fontes da marca não mudam.
+
+| Mês | Tema | Mês | Tema |
+| --- | --- | --- | --- |
+| Jan | Ano Novo | Jul | Férias de inverno |
+| Fev | Carnaval | Ago | Dia dos Pais |
+| Mar | St. Patrick's Day | Set | Primavera |
+| Abr | Páscoa | Out | Halloween |
+| Mai | Dia das Mães | Nov | Black Friday |
+| Jun | Festa Junina | Dez | Natal |
+
+- **Pré-visualizar um mês:** `index.html?mes=3` (de 1 a 12).
+- **Forçar ligado ou desligado:** `?tema=on` ou `?tema=off`.
+- **Desativar:** o visitante pode usar o botão do menu (ícone do mês) ou o link "Desativar" no rodapé. A escolha vale só para o mês atual e fica salva no navegador, então o tema volta sozinho no mês seguinte.
+- **Editar temas, frases e cores:** a lista `THEMES` no início do `js/seasonal.js`.
+- **Importante:** o `index.html` precisa manter `css/seasonal.css` no `<head>` e `js/seasonal.js` antes do `js/main.js`. Sem essas duas linhas o tema não aparece.
+- Quem usa "reduzir movimento" no sistema não vê animação.
 
 ## Parceria
 

@@ -228,13 +228,34 @@ h1,h2,h3,p{overflow-wrap:break-word}
 .social a[data-tip]::before{content:"";bottom:calc(100% + 6px);border:6px solid transparent;border-top-color:var(--pink);border-bottom:0}
 .social a[data-tip]:focus-visible::after,.social a[data-tip]:focus-visible::before,.social a[data-tip]:active::after,.social a[data-tip]:active::before{opacity:1;transform:translate(-50%,0)}
 @media (hover:hover){.social a[data-tip]:hover::after,.social a[data-tip]:hover::before{opacity:1;transform:translate(-50%,0)}}
+
+/* Teacher Patrícia · Logo no cabeçalho (ícone + nome) e no rodapé (logo completa)
+   A imagem da logo tem fundo creme (#FAEDE4). No tema claro ele se funde com a página;
+   no tema escuro ela aparece como um selo/cartão creme. */
+.logo{display:inline-flex;align-items:center;gap:10px}
+.logo-mark{flex:none;display:block;background:#FAEDE4;border-radius:11px;padding:3px;line-height:0}
+.logo-mark img{display:block;height:40px;width:auto}
+
+.foot-brand{display:block;width:max-content;max-width:100%;margin:0 auto 22px;padding:12px;background:#FAEDE4;border-radius:22px;line-height:0}
+.foot-brand img{display:block;height:120px;width:auto;max-width:100%}
+
+@media(max-width:480px){
+  .logo{gap:8px}
+  .logo-mark img{height:32px}
+  .foot-brand img{height:96px}
+}
+/* telas muito estreitas: some o ícone para o menu não estourar a largura */
+@media(max-width:360px){.logo-mark{display:none}}
 </style>
 </head>
 <body>
 
 <header class="header">
   <div class="wrap nav">
-    <a class="logo" href="./">Teacher Patrícia</a>
+    <a class="logo" href="./">
+      <span class="logo-mark"><img src="img/logo-icone.webp" width="33" height="40" alt=""></span>
+      <span>Teacher Patrícia</span>
+    </a>
     <div class="nav-r">
       <a class="nav-link" href="./">Início</a>
       <button id="theme" class="theme-btn" type="button" aria-label="Alternar tema claro/escuro">🌙</button>
@@ -263,6 +284,9 @@ h1,h2,h3,p{overflow-wrap:break-word}
 </main>
 
 <footer class="footer">
+  <a class="foot-brand" href="./" aria-label="Teacher Patrícia · Online English Classes, voltar ao site">
+    <img src="img/logo-completa.webp" width="176" height="120" alt="Teacher Patrícia · Online English Classes" loading="lazy">
+  </a>
   <div class="social">
     <a href="https://instagram.com/teacherpatricia.insta" target="_blank" rel="noopener" aria-label="Instagram" data-tip="Instagram">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
