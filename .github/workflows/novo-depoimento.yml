@@ -1,0 +1,54 @@
+name: Adicionar depoimento
+
+on:
+  workflow_dispatch:          # botão "Run workflow" na aba Actions
+    inputs:
+      nome:
+        description: Nome da pessoa
+        required: true
+      cargo:
+        description: Cargo e empresa (ex.: SQL Engineer, PCMS Tech)
+        required: true
+      texto:
+        description: Texto do depoimento
+        required: true
+      estrelas:
+        description: Estrelas (1 a 5)
+        default: "5"
+        required: true
+      idioma:
+        description: Idioma do texto (pt ou en)
+        default: pt
+
+permissions:
+  contents: write
+
+jobs:
+  adicionar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Adicionar ao reviews.json
+        env:
+          NOME: ${{ inputs.nome }}
+          CARGO: ${{ inputs.cargo }}
+          TEXTO: ${{ inputs.texto }}
+          ESTRELAS: ${{ inputs.estrelas }}
+          IDIOMA: ${{ inputs.idioma }}
+        run: |
+          jq --arg nome "$NOME" --arg cargo "$CARGO" --arg texto "$TEXTO" \
+             --argjson estrelas "$ESTRELAS" --arg lang "$IDIOMA" \
+             '[{nome:$nome, cargo:$cargo, texto:$texto, estrelas:$estrelas, lang:$lang}] + .' \
+             js/reviews.json > /tmp/reviews.json
+          mv /tmp/reviews.json js/reviews.json
+
+      - name: Commit e push
+        env:
+          NOME: ${{ inputs.nome }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/reviews.json
+          git commit -m "Novo depoimento: $NOME"
+          git push
