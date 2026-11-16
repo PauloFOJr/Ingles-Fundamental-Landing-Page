@@ -201,11 +201,55 @@
     });
   }
 
-  /* ---------- Carrossel de depoimentos ---------- */
-  var car = document.querySelector('.carousel');
-  if (car) {
+    /* ---------- Carrossel de depoimentos (lê js/reviews.json) ---------- */
+  var STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg>';
+
+  function initials(nome) {
+    var p = nome.trim().split(/\s+/);
+    var s = p[0].charAt(0) + (p.length > 1 ? p[p.length - 1].charAt(0) : '');
+    return s.toUpperCase();
+  }
+
+  function buildCard(r) {
+    var fig = document.createElement('figure');
+    fig.className = 'rcard';
+    if (r.lang && r.lang !== 'pt') fig.lang = r.lang;
+
+    var n = Math.max(1, Math.min(5, Number(r.estrelas) || 5));
+    var stars = document.createElement('div');
+    stars.className = 'stars';
+    stars.setAttribute('role', 'img');
+    stars.setAttribute('aria-label', n + ' de 5 estrelas');
+    stars.innerHTML = new Array(n + 1).join(STAR);
+
+    var q = document.createElement('blockquote');
+    q.className = 'rtext';
+    q.textContent = '“' + r.texto + '”';
+
+    var cap = document.createElement('figcaption');
+    var av = document.createElement('span');
+    av.className = 'avatar';
+    av.setAttribute('aria-hidden', 'true');
+    av.textContent = initials(r.nome);
+    var who = document.createElement('span');
+    var b = document.createElement('b');
+    b.textContent = r.nome;
+    who.appendChild(b);
+    who.appendChild(document.createElement('br'));
+    who.appendChild(document.createTextNode(r.cargo));
+    cap.appendChild(av);
+    cap.appendChild(who);
+
+    fig.appendChild(stars);
+    fig.appendChild(q);
+    fig.appendChild(cap);
+    return fig;
+  }
+
+  function initCarousel(car) {
     var viewport = car.querySelector('.car-viewport');
     var cards = Array.prototype.slice.call(car.querySelectorAll('.rcard'));
+    if (!cards.length) return;
     var dotsBox = car.querySelector('.car-dots');
     var pauseBtn = car.querySelector('.car-pause');
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -272,9 +316,29 @@
         go(current + 1);
       }, 7000);
     }
+
     // posição inicial: primeiro depoimento em destaque, sem animação
-    window.addEventListener('load', function () { viewport.scrollLeft = cards[0].offsetLeft - (viewport.clientWidth - cards[0].offsetWidth) / 2; setActive(0); });
+    function start() {
+      viewport.scrollLeft = cards[0].offsetLeft - (viewport.clientWidth - cards[0].offsetWidth) / 2;
+      setActive(0);
+    }
     setActive(0);
+    if (document.readyState === 'complete') start();
+    else window.addEventListener('load', start);
+  }
+
+  var carousel = document.querySelector('.carousel');
+  if (carousel) {
+    var track = carousel.querySelector('.car-track');
+    fetch('js/reviews.json', { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (list) {
+        if (!Array.isArray(list) || !list.length) return;
+        track.textContent = '';
+        list.forEach(function (r) { track.appendChild(buildCard(r)); });
+      })
+      .catch(function () { /* mantém os cards do HTML como reserva */ })
+      .then(function () { initCarousel(carousel); });
   }
 
   /* ---------- Ano no rodapé ---------- */
