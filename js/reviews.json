@@ -1,5 +1,12 @@
 [
   {
+    "nome": "Teste Teste",
+    "cargo": "Cargo, Empresa",
+    "texto": "Depoimento teste",
+    "estrelas": 5,
+    "lang": "pt"
+  },
+  {
     "nome": "Osmar Pedrozo",
     "cargo": "CEO, SoftDesign",
     "texto": "Em 2024, a profa. Patrícia topou um projeto desafiador com a SoftDesign, dentro da estratégia de internacionalização da empresa: criar aulas e conteúdos exclusivos para desenvolver rapidamente as nossas pessoas colaboradoras em inglês, para poder atender nossos clientes internacionais. O resultado tem sido excelente e sua capacidade é reconhecida pelo time. Um trabalho de cooperação real.",
