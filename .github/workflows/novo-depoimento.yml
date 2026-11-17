@@ -7,7 +7,7 @@ on:
         description: Nome da pessoa
         required: true
       cargo:
-        description: Cargo e empresa (ex.: SQL Engineer, PCMS Tech)
+        description: "Cargo e empresa (ex.: SQL Engineer, PCMS Tech)"
         required: true
       texto:
         description: Texto do depoimento
