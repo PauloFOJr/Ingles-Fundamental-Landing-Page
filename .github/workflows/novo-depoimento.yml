@@ -1,24 +1,35 @@
 name: Adicionar depoimento
 
 on:
-  workflow_dispatch:          # botão "Run workflow" na aba Actions
+  workflow_dispatch:
     inputs:
       nome:
-        description: Nome da pessoa
-        required: true
-      cargo:
-        description: "Cargo e empresa (ex.: SQL Engineer, PCMS Tech)"
-        required: true
-      texto:
-        description: Texto do depoimento
+        description: "Nome da pessoa"
         required: true
       estrelas:
-        description: Estrelas (1 a 5)
+        description: "Estrelas (1 a 5)"
         default: "5"
         required: true
+      texto:
+        description: "Texto da avaliação (deixe vazio se só tem estrelas)"
+        required: false
+      cargo:
+        description: "Cargo e empresa (ex.: SQL Engineer, PCMS Tech)"
+        required: false
+      data:
+        description: "Mês da avaliação (AAAA-MM, ex.: 2026-10)"
+        required: false
       idioma:
-        description: Idioma do texto (pt ou en)
-        default: pt
+        description: "Idioma do texto (pt ou en)"
+        default: "pt"
+        required: false
+      fonte:
+        description: "Origem da avaliação"
+        type: choice
+        options:
+          - google
+          - outro
+        default: google  
 
 permissions:
   contents: write
@@ -35,11 +46,12 @@ jobs:
           CARGO: ${{ inputs.cargo }}
           TEXTO: ${{ inputs.texto }}
           ESTRELAS: ${{ inputs.estrelas }}
+          DATA: ${{ inputs.data }}
           IDIOMA: ${{ inputs.idioma }}
         run: |
           jq --arg nome "$NOME" --arg cargo "$CARGO" --arg texto "$TEXTO" \
-             --argjson estrelas "$ESTRELAS" --arg lang "$IDIOMA" \
-             '[{nome:$nome, cargo:$cargo, texto:$texto, estrelas:$estrelas, lang:$lang}] + .' \
+             --arg data "$DATA" --arg lang "$IDIOMA" --argjson estrelas "$ESTRELAS" \
+             '[{nome:$nome, cargo:$cargo, texto:$texto, estrelas:$estrelas, lang:$lang} + (if $data != "" then {data:$data} else {} end)] + .' \
              js/reviews.json > /tmp/reviews.json
           mv /tmp/reviews.json js/reviews.json
 
