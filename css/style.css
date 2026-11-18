@@ -341,6 +341,11 @@ dialog:not([open]){display:none}
 .car-pause:hover,.car-pause:focus-visible{color:var(--text);border-color:var(--pink)}
 @media(max-width:480px){.carousel{--cw:min(560px,calc(100vw - 96px))}.rcard{padding:22px 20px}}
 @media (prefers-reduced-motion:reduce){.car-pause{display:none}.rcard{transition:none}}
+.car-resumo{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 14px;font-size:14px;color:var(--muted)}
+.car-resumo .stars{margin:0}
+.car-resumo .stars svg{width:20px;height:20px}
+.car-resumo b{color:var(--slate);font-size:16px}
+.car-resumo[hidden]{display:none}
 
 /* ---------- Telas pequenas: evita estouro lateral ---------- */
 body{overflow-x:hidden}
