@@ -210,6 +210,31 @@
     return s.toUpperCase();
   }
 
+    var resumo = document.querySelector('.car-resumo');
+
+  function mesAno(s, lang) {
+    var m = /^(\d{4})-(\d{2})$/.exec(s || '');
+    if (!m) return '';
+    return new Date(Number(m[1]), Number(m[2]) - 1, 1)
+      .toLocaleDateString(lang === 'en' ? 'en-US' : 'pt-BR', { month: 'long', year: 'numeric' });
+  }
+
+  function mostrarResumo(list) {
+    if (!resumo) return;
+    var notas = list.map(function (r) { return Number(r.estrelas); })
+      .filter(function (n) { return n >= 1 && n <= 5; });
+    if (!notas.length) return;
+    var nota = notas.reduce(function (a, b) { return a + b; }, 0) / notas.length;
+    var txt = nota.toFixed(1).replace('.', ',');
+    var st = resumo.querySelector('[data-estrelas]');
+    st.innerHTML = new Array(Math.round(nota) + 1).join(STAR);
+    st.setAttribute('aria-label', 'Nota ' + txt + ' de 5');
+    resumo.querySelector('[data-nota]').textContent = txt;
+    resumo.querySelector('[data-total]').textContent =
+      notas.length + (notas.length === 1 ? ' avaliação' : ' avaliações');
+    resumo.hidden = false;
+  }
+
   function buildCard(r) {
     var fig = document.createElement('figure');
     fig.className = 'rcard';
@@ -234,9 +259,12 @@
     var who = document.createElement('span');
     var b = document.createElement('b');
     b.textContent = r.nome;
-    who.appendChild(b);
-    who.appendChild(document.createElement('br'));
-    who.appendChild(document.createTextNode(r.cargo));
+        who.appendChild(b);
+    var linha = [r.cargo, mesAno(r.data, r.lang)].filter(Boolean).join(' · ');
+    if (linha) {
+      who.appendChild(document.createElement('br'));
+      who.appendChild(document.createTextNode(linha));
+    }
     cap.appendChild(av);
     cap.appendChild(who);
 
@@ -332,10 +360,13 @@
     var track = carousel.querySelector('.car-track');
     fetch('js/reviews.json', { cache: 'no-cache' })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function (list) {
+            .then(function (list) {
         if (!Array.isArray(list) || !list.length) return;
+        mostrarResumo(list);
+        var comTexto = list.filter(function (r) { return r.texto && String(r.texto).trim(); });
+        if (!comTexto.length) return;
         track.textContent = '';
-        list.forEach(function (r) { track.appendChild(buildCard(r)); });
+        comTexto.forEach(function (r) { track.appendChild(buildCard(r)); });
       })
       .catch(function () { /* mantém os cards do HTML como reserva */ })
       .then(function () { initCarousel(carousel); });
