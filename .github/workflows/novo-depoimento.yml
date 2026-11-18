@@ -23,6 +23,13 @@ on:
         description: "Idioma do texto (pt ou en)"
         default: "pt"
         required: false
+      fonte:
+        description: "Origem da avaliação"
+        type: choice
+        options:
+          - google
+          - outro
+        default: google  
 
 permissions:
   contents: write
